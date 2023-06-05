@@ -81,7 +81,7 @@
         </div>
 
 
-        <div class="box-search-ride wow fadeInRight">
+        {% comment %} <div class="box-search-ride wow fadeInRight">
           <div class="search-item search-date"> 
             <div class="search-icon"> <span class="item-icon icon-date"> </span></div>
             <div class="search-inputs"> 
@@ -185,7 +185,12 @@
             <button class="btn btn-search" type="submit"> <img src="{% static 'imgs/template/icons/search.svg' %}" alt="luxride">Search</button>
           </div>
         </div>
-      </section>
+      </section> {% endcomment %}
+      
+      <div class="search-item search-button"> 
+        <button class="btn btn-search text-center" type="submit"> <img src="{% static 'imgs/template/icons/search.svg' %}" alt="luxride">Book Now</button>
+      </div>
+    </div>
 
 
 
