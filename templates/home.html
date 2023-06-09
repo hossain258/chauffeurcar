@@ -41,6 +41,7 @@
                 <div class="box-banner-info"> 
                   <p class="text-16 color-white wow fadeInDown">Where Would You Like To Go?</p>
                   <h2 class="heading-52-medium color-white wow fadeInRight">Your Personal <br class="d-none d-lg-block">Chauffeur Services</h2>
+                  <a href='#'class='btn btn-warning text-center'>Book Now</a>
                 </div>
               </div>
               <div class="swiper-slide">
@@ -263,7 +264,7 @@
 
 
        <!-- start services-->
-       <section class="section pt-90 pb-120 bg-our-service"> 
+       {% comment %} <section class="section pt-90 pb-120 bg-our-service"> 
         <div class="container-sub"> 
           <div class="row align-items-center">
             <div class="col-lg-6 col-sm-7 col-7">
@@ -351,7 +352,116 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> {% endcomment %}
+
+
+
+
+      
+        <div class="section pt-60 pb-60 bg-primary">
+          <div class="container-sub"> 
+            <h1 class="heading-44-medium color-white mb-5 wow fadeInDown">Services</h1>
+            
+          </div>
+        </div>
+        <section class="section pt-60">
+          <div class="container-sub"> 
+            <div class="row">
+              <div class="col-lg-4 col-sm-6 mb-30"> 
+                <div class="cardService wow fadeInRight">
+                  <div class="cardInfo">
+                    <h3 class="cardTitle text-20-medium color-white mb-10">Business Class</h3>
+                    <div class="box-inner-info">
+                      <p class="cardDesc text-14 color-white mb-30">Mercedes-Benz E-Class, BMW 5 Series, Cadillac XTS or similar</p><a class="cardLink btn btn-arrow-up" href="service-single.html">
+                        <svg class="icon-16" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path>
+                        </svg></a>
+                    </div>
+                  </div>
+                  <div class="cardImage"><img src="{% static 'imgs/page/homepage1/service1.png' %}" alt="Luxride"></div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-sm-6 mb-30"> 
+                <div class="cardService wow fadeInRight">
+                  <div class="cardInfo">
+                    <h3 class="cardTitle text-20-medium color-white mb-10">Chauffeur Hailing</h3>
+                    <div class="box-inner-info">
+                      <p class="cardDesc text-14 color-white mb-30">Mercedes-Benz E-Class, BMW 5 Series, Cadillac XTS or similar</p><a class="cardLink btn btn-arrow-up" href="service-single.html">
+                        <svg class="icon-16" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path>
+                        </svg></a>
+                    </div>
+                  </div>
+                  <div class="cardImage"><img src="{% static 'imgs/page/homepage1/service2.png' %}" alt="Luxride"></div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-sm-6 mb-30"> 
+                <div class="cardService wow fadeInRight">
+                  <div class="cardInfo">
+                    <h3 class="cardTitle text-20-medium color-white mb-10">Airport Transfers</h3>
+                    <div class="box-inner-info">
+                      <p class="cardDesc text-14 color-white mb-30">Mercedes-Benz E-Class, BMW 5 Series, Cadillac XTS or similar</p><a class="cardLink btn btn-arrow-up" href="service-single.html">
+                        <svg class="icon-16" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path>
+                        </svg></a>
+                    </div>
+                  </div>
+                  <div class="cardImage"><img src="{% static 'imgs/page/homepage1/service3.png' %}" alt="Luxride"></div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-6 mb-30"> 
+                <div class="cardService wow fadeInRight">
+                  <div class="cardInfo">
+                    <h3 class="cardTitle text-20-medium color-white mb-10">Sprinter Class</h3>
+                    <div class="box-inner-info">
+                      <p class="cardDesc text-14 color-white mb-30">Mercedes-Benz E-Class, BMW 5 Series, Cadillac XTS or similar</p><a class="cardLink btn btn-arrow-up" href="service-single.html">
+                        <svg class="icon-16" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path>
+                        </svg></a>
+                    </div>
+                  </div>
+                  <div class="cardImage"><img src="{% static 'imgs/page/homepage1/service5.png' %}" alt="Luxride"></div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-6 mb-30"> 
+                <div class="cardService wow fadeInRight">
+                  <div class="cardInfo">
+                    <h3 class="cardTitle text-20-medium color-white mb-10">Wedding Class</h3>
+                    <div class="box-inner-info">
+                      <p class="cardDesc text-14 color-white mb-30">Mercedes-Benz E-Class, BMW 5 Series, Cadillac XTS or similar</p><a class="cardLink btn btn-arrow-up" href="service-single.html">
+                        <svg class="icon-16" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path>
+                        </svg></a>
+                    </div>
+                  </div>
+                  <div class="cardImage"><img src="{% static 'imgs/page/services/wedding.png' %}" alt="Luxride"></div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-6 mb-30"> 
+                <div class="cardService wow fadeInRight">
+                  <div class="cardInfo">
+                    <h3 class="cardTitle text-20-medium color-white mb-10">Travel Transfer</h3>
+                    <div class="box-inner-info">
+                      <p class="cardDesc text-14 color-white mb-30">Mercedes-Benz E-Class, BMW 5 Series, Cadillac XTS or similar</p><a class="cardLink btn btn-arrow-up" href="service-single.html">
+                        <svg class="icon-16" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path>
+                        </svg></a>
+                    </div>
+                  </div>
+                  <div class="cardImage"><img src="{% static  'imgs/page/services/travel.png' %}" alt="Luxride"></div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            
+          </div>
+        </section>
+      
 
 
 
@@ -456,7 +566,7 @@
 
 
 
-      <section class="section pt-120 pb-20 bg-primary bg-how-it-works"> 
+      {% comment %} <section class="section pt-120 pb-20 bg-primary bg-how-it-works"> 
         <div class="container-sub"> 
           <h2 class="heading-44-medium color-white mb-60 wow fadeInUp">How It Works</h2>
           <div class="row"> 
@@ -489,7 +599,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> {% endcomment %}
 
 
 
@@ -576,7 +686,8 @@
           </div>
         </div>
       </section>
-      <section class="section pt-120 pb-120 bg-region">
+
+      {% comment %} <section class="section pt-120 pb-120 bg-region">
         <div class="container-sub"> 
           <div class="row align-items-center"> 
             <div class="col-lg-6 mb-30">
@@ -596,7 +707,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> {% endcomment %}
 
 
 
