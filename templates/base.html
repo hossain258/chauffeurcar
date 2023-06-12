@@ -285,6 +285,19 @@
       <script src="{% static 'js/main.js' %}"></script>
       {% block js %}
       {% endblock js %}
+
+
+      <script>
+        $(document).ready(function() {
+          $('#is_return').change(function() {
+            if ($(this).is(':checked')) {
+            $('#return').show();
+            } else {
+            $('#return').hide();
+            }
+          });
+          });
+      </script>
     </body>
   </html>
 

@@ -1,6 +1,6 @@
 from django import forms
 
-from app_car.models import Contact
+from app_car.models import Contact,Booking
 
 
 class ContactForm(forms.ModelForm):
@@ -14,3 +14,12 @@ class ContactForm(forms.ModelForm):
             'phone_number': forms.TextInput(attrs={'placeholder': 'Enter Your Phone Number'}),
             'message': forms.Textarea(attrs={'placeholder': 'Type Your message'})
         }
+
+
+
+class BookingForm(forms.ModelForm):
+    class Meta:
+        model = Booking
+        fields = '__all__' 
+
+        
