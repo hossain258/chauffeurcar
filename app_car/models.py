@@ -25,6 +25,8 @@ class Services(Basemodel):
     title=models.CharField(max_length=120, blank=True, null=True)
     headline=models.CharField(max_length=500, blank=True, null=True)
     service_img=models.ImageField(upload_to='services', blank=True, null=True)
+    thumbnail_image=models.ImageField(upload_to='services', blank=True, null=True)
+    is_featured = models.BooleanField(default=False)
 
     class Meta:
         verbose_name_plural = "services"

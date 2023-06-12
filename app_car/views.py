@@ -1,6 +1,7 @@
 from django.shortcuts import render
+from django.views.generic.list import ListView
 from django.views.generic import TemplateView
-from app_car.models import Contact
+from app_car.models import Contact,Services
 from app_car.forms import ContactForm,BookingForm
 from django.http import JsonResponse
 
@@ -9,9 +10,8 @@ class HomeView(TemplateView):
     template_name = "home.html"
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        
-        # service_list = Service.objects.filter(is_featured=True)
+        context = super().get_context_data(**kwargs)        
+        # context['services'] = Services.objects.filter(is_featured=True)
 
 def about(request):
     diction ={}
@@ -29,13 +29,19 @@ def faq(request):
     diction ={}
     return render(request,'faq.html', context=diction)
 
-# def booking(request):
-#     diction ={}
-#     return render(request,'booking-passenger.html', context=diction)
 
-def services(request):
-    dict={}
-    return render(request,'services.html', context=dict)
+
+
+class serviceListView(ListView):
+    model = Services
+    template_name = "services.html"
+    paginate_by = 6
+    context_object_name='services'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)   
+           
+        return context
 
 
 

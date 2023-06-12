@@ -1,6 +1,6 @@
 from django.urls import path
 from app_car import views
-from app_car.views import HomeView
+from app_car.views import HomeView,serviceListView
 
 
 urlpatterns = [
@@ -9,6 +9,6 @@ urlpatterns = [
     path("fleet/", views.fleet, name ='fleet'),
     path("faq/", views.faq, name ='faq'),
     path("booking/", views.booking, name='booking'),
-    path("services/", views.services, name ='services'),
+    path("services/", serviceListView.as_view(), name ='services'),
     path("contact/", views.contact, name ='contact'),
 ]
