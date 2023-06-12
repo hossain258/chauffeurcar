@@ -13,6 +13,7 @@
     <meta name="keywords" content="index, page">
     <meta name="author" content="">
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'imgs/template/favicon.png' %}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <title>SPC||{% block title %} {% endblock title %}</title>
   </head>
@@ -263,6 +264,7 @@
       <script src="{% static 'js/vendors/jquery-3.6.0.min.js' %}"></script>
       <script src="{% static 'js/vendors/jquery-migrate-3.3.0.min.js' %}"></script>
       <script src="{% static 'js/vendors/bootstrap.bundle.min.js' %}"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
       <script src="{% static 'js/vendors/waypoints.js' %}"></script>
       <script src="{% static 'js/vendors/wow.js' %}"></script>
       <script src="{% static 'js/vendors/magnific-popup.js' %}"></script>
@@ -281,6 +283,8 @@
   <script src="{% static 'js/vendors/jquery-ui.js' %}"></script>
   <script src="{% static 'js/vendors/jquery.timepicker.min.js' %}"></script>
       <script src="{% static 'js/main.js' %}"></script>
+      {% block js %}
+      {% endblock js %}
     </body>
   </html>
 
