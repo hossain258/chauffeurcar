@@ -38,10 +38,10 @@ class serviceListView(ListView):
     paginate_by = 6
     context_object_name='services'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)   
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)   
            
-        return context
+    #     return context
 
 
 
@@ -84,8 +84,15 @@ def booking(request):
         # email = request.POST['email']
         # phone_number = request.POST.get('phone_number')
         # message = request.POST['message']
-        # values = Contact(name=name, email=email,phone_number=phone_number,message=message)        
-        form.save()
+        # values = Contact(name=name, email=email,phone_number=phone_number,message=message) 
+        if form.is_valid():       
+            form.save()
+            return JsonResponse({'messge': 'wow...'})
+        else:
+            print('error:', form.errors)
+            for err in form.errors:
+                print('err-r', err)
+           
         #  success=('the form submited successfully')
         # messages.success(request,"The message has been successfully submitted !!")
         # send_email = EmailMessage(
@@ -99,7 +106,6 @@ def booking(request):
         #     )
         # send_email.send()
         # messages.success(request,"The message has been successfully submitted !!")
-        return JsonResponse({'status':'The form submitted successfully'})
     
     form=BookingForm()
         

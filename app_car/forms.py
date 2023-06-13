@@ -21,5 +21,5 @@ class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = '__all__' 
-
+        exclude = ('created_at',)
         

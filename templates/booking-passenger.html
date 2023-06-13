@@ -14,7 +14,7 @@
                         <div class="form-contact form-comment wow fadeInUp">
 
 
-							<form id="booking-form" method='POST'>
+							<form id="booking-form" method='POST' action="{% url 'booking' %}">
 								{% csrf_token %}
 
 
@@ -352,10 +352,10 @@
 						<br>
 
 						<div class="mt-30 mb-120 wow fadeInLeft">
-							<a class="btn btn-primary btn-primary-big w-100"  id='contactSubmit' >Book Now <svg class="icon-16 ml-5" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+							<button type='submit' class="btn btn-primary btn-primary-big w-100"  id='contactSubmit' >Book Now <svg class="icon-16 ml-5" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 									<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path>
 								</svg>
-							</a>
+							</button>
 						</div>
 					</form>
 					</div>
