@@ -42,33 +42,34 @@ class Booking(Basemodel):
     name = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=20)
     email = models.EmailField(max_length=100)
+    pickup_type = models.IntegerField(default=0)
     payment_type = models.IntegerField(default=0)
-    journey_date = models.DateField(auto_now=False, auto_now_add=False)
-    journey_time = models.DateField(auto_now=False, auto_now_add=False)
+    journey_date = models.DateField(blank=True, null=True)
+    journey_time = models.TimeField(blank=True, null=True)
     passenger_number = models.IntegerField(default=0)
-    flight_number = models.IntegerField(default=0)
+    flight_number = models.CharField(max_length=100, blank=True, null=True)
     main_luggage = models.IntegerField(default=0)
     hand_luggage = models.IntegerField(default=0)
-    pickup_address = models.CharField(max_length=200)
-    destination_address = models.CharField(max_length=200)
+    pickup_address = models.CharField(max_length=200, blank=True, null=True)
+    destination_address = models.CharField(max_length=200, blank=True, null=True)
 
-    is_return_journey = models.BooleanField(default=False)
-    return_journey_date = models.DateField(auto_now=False, auto_now_add=False)
-    return_journey_time = models.DateField(auto_now=False, auto_now_add=False)
+    is_return_journey = models.IntegerField(default=0, blank=True, null=True)
+    return_journey_date = models.DateField(blank=True, null=True)
+    return_journey_time = models.TimeField(blank=True, null=True)
     return_passenger_number = models.IntegerField(default=0)
-    return_flight_number = models.IntegerField(default=0)
+    return_flight_number = models.CharField(max_length=100, blank=True, null=True)
     return_main_luggage = models.IntegerField(default=0)
     return_hand_luggage = models.IntegerField(default=0)
-    return_pickup_address = models.CharField(max_length=200)
-    return_destination_address = models.CharField(max_length=200)
+    return_pickup_address = models.CharField(max_length=200, blank=True, null=True)
+    return_destination_address = models.CharField(max_length=200, blank=True, null=True)
 
-    booking_note = models.TextField(max_length=1000)
+    booking_note = models.TextField(max_length=1000, blank=True, null=True)
 
     service_type = models.IntegerField(default=0)  # Standered = 1, Premium = 2
     promo_code = models.CharField(max_length=20, null=True, blank=True)
 
-    privacy_agree = models.BooleanField(default=False)
-    terms_agree = models.BooleanField(default=False)
+    privacy_agree = models.IntegerField(default=0, blank=True, null=True)
+    terms_agree = models.IntegerField(default=0, blank=True, null=True)
 
 
     def __str__(self):
