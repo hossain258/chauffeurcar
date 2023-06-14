@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic import TemplateView
-from app_car.models import Contact,Services
+from app_car.models import Contact,Services, Booking
 from app_car.forms import ContactForm,BookingForm
 from django.http import JsonResponse
+from django.contrib import messages
 
 
 class HomeView(TemplateView):
@@ -11,7 +12,10 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)        
-        # context['services'] = Services.objects.filter(is_featured=True)
+        context['services'] = Services.objects.filter(is_featured=True)
+        context['form'] =ContactForm
+        print(context['services'])
+    
 
 def about(request):
     diction ={}
@@ -38,10 +42,10 @@ class serviceListView(ListView):
     paginate_by = 6
     context_object_name='services'
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)   
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)   
            
-    #     return context
+        return context
 
 
 
@@ -79,21 +83,83 @@ def contact(request):
 def booking(request):
     
     if request.method == "POST":
-        form = BookingForm(request.POST)
+        # form = BookingForm(request.POST) 
+
+        if request.POST.get('is_return_journey', False) == 1:
+            values = Booking(
+                name = request.POST['name'],
+                phone_number = request.POST['phone_number'],
+                email = request.POST['email'],
+                pickup_type = request.POST['pickup_type'],
+                payment_type = request.POST['payment_type'],
+                journey_date = request.POST['journey_date'],
+                journey_time = request.POST['journey_time'],
+                passenger_number = request.POST['passenger_number'],
+                flight_number = request.POST['flight_number'],
+                main_luggage = request.POST['main_luggage'],
+                hand_luggage = request.POST['hand_luggage'],
+                pickup_address = request.POST['pickup_address'],
+                destination_address = request.POST['destination_address'],
+                is_return_journey = request.POST.get('is_return_journey', False),
+                
+                return_journey_date = request.POST['return_journey_date'],
+                return_journey_time = request.POST['return_journey_time'],
+                return_passenger_number = request.POST['return_passenger_number'],
+                return_flight_number = request.POST['return_flight_number'],
+                return_main_luggage = request.POST['return_main_luggage'],
+                return_hand_luggage = request.POST['return_hand_luggage'],
+                return_pickup_address = request.POST['return_pickup_address'],
+                return_destination_address = request.POST['return_destination_address'],
+
+                booking_note = request.POST['booking_note'],
+                service_type = request.POST['service_type'],
+                promo_code = request.POST['promo_code'],
+                privacy_agree = request.POST.get('privacy_agree', False),
+                terms_agree = request.POST.get('terms_agree', False),
+            )     
+        else:
+             values = Booking(
+                name = request.POST['name'],
+                phone_number = request.POST['phone_number'],
+                email = request.POST['email'],
+                pickup_type = request.POST['pickup_type'],
+                payment_type = request.POST['payment_type'],
+                journey_date = request.POST['journey_date'],
+                journey_time = request.POST['journey_time'],
+                passenger_number = request.POST['passenger_number'],
+                flight_number = request.POST['flight_number'],
+                main_luggage = request.POST['main_luggage'],
+                hand_luggage = request.POST['hand_luggage'],
+                pickup_address = request.POST['pickup_address'],
+                destination_address = request.POST['destination_address'],
+                is_return_journey = request.POST.get('is_return_journey', False),
+                booking_note = request.POST['booking_note'],
+                service_type = request.POST['service_type'],
+                promo_code = request.POST['promo_code'],
+                privacy_agree = request.POST.get('privacy_agree', False),
+                terms_agree = request.POST.get('terms_agree', False),
+            )  
+        values.save()
+        form=BookingForm()
+        messages.success(request,"The booking request has been successfully submitted . Please wait for confirmation email !! or Call us on 0772546355")
+        # return JsonResponse({'status':'The form save successfully'})
+
+        # form = BookingForm(request.POST)
+        # print(form.is_valid())
+        # print('faisal ==========')
+        # if form.is_valid():
+        #     form.save()
+        #     return JsonResponse({'status':'The form save successfully'})
+            # print(form)
         # name = request.POST['name']
+        # # print(name)
+        # # exit
         # email = request.POST['email']
         # phone_number = request.POST.get('phone_number')
         # message = request.POST['message']
-        # values = Contact(name=name, email=email,phone_number=phone_number,message=message) 
-        if form.is_valid():       
-            form.save()
-            return JsonResponse({'messge': 'wow...'})
-        else:
-            print('error:', form.errors)
-            for err in form.errors:
-                print('err-r', err)
-           
-        #  success=('the form submited successfully')
+        # values = Contact(name=name, email=email,phone_number=phone_number,message=message)        
+        # form.save()
+        # success=('the form submited successfully')
         # messages.success(request,"The message has been successfully submitted !!")
         # send_email = EmailMessage(
         #     f"""  message from ICTINEX """,

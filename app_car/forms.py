@@ -21,5 +21,33 @@ class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = '__all__' 
-        exclude = ('created_at',)
+        # fields = (
+        #     "name", 
+        #     "phone_number", 
+        #     "email",
+        #     "pickup_type",
+        #     "payment_type",
+        #     "journey_date",
+        #     "journey_time",
+        #     "passenger_number",
+        #     "flight_number",
+        #     "main_luggage",
+        #     "hand_luggage",
+        #     "pickup_address",
+        #     "destination_address",
+        #     "is_return_journey",
+        #     "return_journey_date",
+        #     "return_journey_time",
+        #     "return_passenger_number",
+        #     "return_flight_number",
+        #     "return_main_luggage",
+        #     "return_hand_luggage",
+        #     "return_pickup_address",
+        #     "return_destination_address",
+        #     "booking_note",
+        #     "service_type",
+        #     "promo_code",
+        #     "privacy_agree",
+        #     "terms_agree"
+        # ) 
         
