@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views.generic.list import ListView
 from django.views.generic import TemplateView
-from app_car.models import Contact,Services, Booking
-from app_car.forms import ContactForm,BookingForm
+from app_car.models import Contact,Services, Booking,Review
+from app_car.forms import ContactForm,BookingForm,ReviewForm
 from django.http import JsonResponse
 from django.contrib import messages
 
@@ -15,6 +15,7 @@ class HomeView(TemplateView):
         context['services'] = Services.objects.filter(is_featured=True)
         context['form'] =ContactForm
         print(context['services'])
+        return context
     
 
 def about(request):
@@ -32,6 +33,21 @@ def fleet(request):
 def faq(request):
     diction ={}
     return render(request,'faq.html', context=diction)
+
+def privacy(request):
+    diction ={}
+    return render(request,'privacy.html', context=diction)
+
+
+def servicedetails(request):
+    diction ={}
+    return render(request,'servicedeatils.html', context=diction)
+
+
+def pricetable(request):
+    diction ={}
+    return render(request,'pricing.html', context=diction)
+
 
 
 
@@ -176,3 +192,19 @@ def booking(request):
     form=BookingForm()
         
     return render(request, 'booking-passenger.html', {'form':form})
+
+
+
+def create_review(request):
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            # review.user = request.user
+            review.save()
+            messages.success(request, 'Review created successfully!')
+            return redirect('reviews')
+    else:
+        form = ReviewForm()
+    reviews = Review.objects.filter(is_published=True)
+    return render(request, 'reviewform.html', {'form': form, 'reviews': reviews})

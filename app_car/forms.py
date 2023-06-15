@@ -1,6 +1,6 @@
 from django import forms
 
-from app_car.models import Contact,Booking
+from app_car.models import Contact,Booking,Review
 
 
 class ContactForm(forms.ModelForm):
@@ -50,4 +50,11 @@ class BookingForm(forms.ModelForm):
         #     "privacy_agree",
         #     "terms_agree"
         # ) 
+
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ['name','email', 'content', 'rating']
+        
         

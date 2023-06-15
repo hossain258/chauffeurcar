@@ -71,14 +71,14 @@ class Booking(Basemodel):
     email = models.EmailField(max_length=100)
     pickup_type = models.CharField(max_length=30 ,choices=PICKUP_TYPE_CHOICES, default='Airport')
     payment_type = models.CharField(max_length=30, choices=PAYMENT_TYPE_CHOICES, default='Cash')
-    journey_date = models.DateField(blank=True, null=True)
-    journey_time = models.TimeField(blank=True, null=True)
+    journey_date = models.DateField(blank=False, null=True)
+    journey_time = models.TimeField(blank=False, null=True)
     passenger_number = models.IntegerField(default=0)
     flight_number = models.CharField(max_length=100, blank=True, null=True)
     main_luggage = models.IntegerField(default=0)
     hand_luggage = models.IntegerField(default=0)
-    pickup_address = models.CharField(max_length=200, blank=True, null=True)
-    destination_address = models.CharField(max_length=200, blank=True, null=True)
+    pickup_address = models.CharField(max_length=200, blank=False, null=True)
+    destination_address = models.CharField(max_length=200, blank=False, null=True)
 
     is_return_journey = models.IntegerField(default=0, blank=True, null=True)
     return_journey_date = models.DateField(blank=True, null=True)
@@ -95,10 +95,34 @@ class Booking(Basemodel):
     service_type = models.IntegerField(default=0)  # Standered = 1, Premium = 2
     promo_code = models.CharField(max_length=20, null=True, blank=True)
 
-    privacy_agree = models.IntegerField(default=0, blank=True, null=True)
-    terms_agree = models.IntegerField(default=0, blank=True, null=True)
+    privacy_agree = models.IntegerField(default=0, blank=False, null=True)
+    terms_agree = models.IntegerField(default=0, blank=False, null=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
 
+
+    def __str__(self):
+        return self.name
+    
+
+class Review(Basemodel):
+
+    PUBLISHED_TYPE_CHOICES =(
+        ('Pending', 'Pending'),
+        ('Active', 'Active'),
+        
+
+    )
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name= models.CharField(max_length=150,blank=False, null=True)  
+    email= models.EmailField(max_length=155, blank=False, null=True)
+    content = models.TextField(max_length = 300, blank=True, null=True)
+
+    rating = models.IntegerField()
+    # rating = models.ForeignKey(Rating, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=20,choices=PUBLISHED_TYPE_CHOICES, default='Pending')
+    is_published = models.BooleanField(default=False,)
+    
 
     def __str__(self):
         return self.name

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from.models import Contact,Services,Booking
+from.models import Contact,Services,Booking,Review
 from django.templatetags.static import static
 
 # Register your models here.
@@ -23,7 +23,7 @@ class contactAdmin(admin.ModelAdmin):
 
 @admin.register(Booking)
 class bookingAdmin(admin.ModelAdmin):
-    list_display=('name','email','phone_number','created_at')
+    list_display=('name','email','phone_number','status','created_at',)
     actions = ['mark_action_pending']
     search_fields = ('name',)
     list_filter =('created_at','status')
@@ -39,4 +39,12 @@ class bookingAdmin(admin.ModelAdmin):
         modeladmin.message_user(request, "Selected bookings have been marked as Action Pending.")
 
     mark_action_pending.short_description = "Mark selected bookings as Action Pending"
+
+@admin.register(Review)
+class reviewAdmin(admin.ModelAdmin):
+    list_display=('name','email','status','is_published','created_at',)
+    actions = ['mark_action_pending']
+    search_fields = ('name',)
+    list_filter =('created_at','status')
+    list_per_page = 10
 
