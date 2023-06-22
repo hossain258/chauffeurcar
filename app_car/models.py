@@ -10,6 +10,14 @@ class Basemodel(models.Model):
         ordering = ("-created_at",)
 
 
+class Slider(models.Model):
+    slider_image= models.ImageField(upload_to='slider', blank=True, null=True)
+    slider_title= models.CharField(max_length = 200, blank=True, null=True)
+    slider_text=models.CharField(max_length=250, blank=True,null=True)
+
+    def __str__(self):
+        return self.slider_title
+
 class Contact(Basemodel):
     name = models.CharField(max_length=25, blank=True, null=True)
     email = models.EmailField(max_length=155, blank=True, null=True)

@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.views.generic.list import ListView
 from django.views.generic import TemplateView
-from app_car.models import Contact,Services, Booking,Review
+from app_car.models import Contact,Services, Booking,Review,Slider
 from app_car.forms import ContactForm,BookingForm,ReviewForm
 from django.http import JsonResponse
 from django.contrib import messages
@@ -14,6 +14,7 @@ class HomeView(TemplateView):
         context = super().get_context_data(**kwargs)        
         context['services'] = Services.objects.filter(is_featured=True)
         context['form'] =ContactForm
+        context["slider_list"]  = Slider.objects.all()
         print(context['services'])
         return context
     
@@ -21,6 +22,10 @@ class HomeView(TemplateView):
 def about(request):
     diction ={}
     return render(request,'about.html', context=diction)
+
+# def slider(request):
+#     diction ={}
+#     return render(request,'about.html', context=diction)
 
 def gallery(request):
     diction ={}

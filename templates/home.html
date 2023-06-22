@@ -35,6 +35,9 @@
       <section class="section banner-home1">
         <div class="box-swiper"> 
           <div class="swiper-container swiper-banner-1 pb-0">
+
+
+            {% for slider_obj in %}
             <div class="swiper-wrapper">
               <div class="swiper-slide">
                 <div class="box-cover-image" style="background-image:url({% static 'imgs/page/homepage1/banner.png' %})"></div>
@@ -44,12 +47,19 @@
                   <a href='#'class='btn btn-warning text-center'>Book Now</a>
                 </div>
               </div>
+
+
+
               <div class="swiper-slide">
                 <div class="box-cover-image" style="background-image:url({% static 'imgs/page/homepage1/banner2.png' %})"></div>
                 <div class="box-banner-info"> 
                   <p class="text-16 color-white wow fadeInDown">Where Would You Like To Go?</p>
                   <h2 class="heading-52-medium color-white wow fadeInRight">Your Personal <br class="d-none d-lg-block">Chauffeur Services</h2>
                 </div>
+
+
+
+
               </div>
               <div class="swiper-slide">
                 <div class="box-cover-image" style="background-image:url({% static 'imgs/page/homepage1/banner3.png' %})"></div>

@@ -1,8 +1,9 @@
 from django.contrib import admin
-from.models import Contact,Services,Booking,Review
+from.models import Contact,Services,Booking,Review,Slider
 from django.templatetags.static import static
 
 # Register your models here.
+admin.site.register(Slider)
 
 
 @admin.register(Services)
